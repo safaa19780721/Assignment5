@@ -1,4 +1,4 @@
 
-public class PhoneNumberFormatException {
+public class PhoneNumberFormatException extends Exception{
 
 }
