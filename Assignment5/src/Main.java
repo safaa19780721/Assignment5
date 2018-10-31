@@ -22,6 +22,7 @@ public class Main {
 		} catch (FileNotFoundException e) {
 			System.out.println("File could not be found.");
 		}
+
 		System.out.println("It is " + x);
 
 		String[] filePaths = { "testcase1.txt", "testcase2.txt", "testcase3.txt", "testcase4.txt", "testcase5.txt",
