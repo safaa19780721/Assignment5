@@ -7,5 +7,6 @@ public class Main {
 		ContactInformationFormatter formatter = new ContactInformationFormatter();
 		formatter.readContactInformation(filePaths);
 		System.out.println("Partner 2 change");
+		System.out.println("Richard");
 	}
 }
