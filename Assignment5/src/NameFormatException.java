@@ -1,4 +1,3 @@
-
-public class NameFormatException {
+public class NameFormatException extends Exception{
 
 }

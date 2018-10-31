@@ -1,3 +1,3 @@
-public class EmailAddressFormatException {
+public class EmailAddressFormatException extends Exception{
 
 }
