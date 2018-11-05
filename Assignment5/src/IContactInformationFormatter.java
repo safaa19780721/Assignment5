@@ -7,4 +7,6 @@ public interface IContactInformationFormatter {
 	void formatEmail(String email) throws EmailAddressFormatException;
 
 	void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException;
+	
+	void formatName(String name) throws NameFormatException;
 }
