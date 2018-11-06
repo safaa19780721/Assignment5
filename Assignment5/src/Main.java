@@ -6,7 +6,6 @@ public class Main {
 				"testcase6.txt", "testcase7.txt", "testcase8.txt", "testcase9.txt", "testcase10.txt" };
 		ContactInformationFormatter formatter = new ContactInformationFormatter();
 		formatter.readContactInformation(filePaths);
-		System.out.println("Partner 2 change");
-		System.out.println("Richard");
 	}
+
 }
