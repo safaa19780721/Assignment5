@@ -5,7 +5,7 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 	@Override
 	public void handleFileNotFoundException(FileNotFoundException e) {
 		String fileName = e.getMessage(); //may need to add a message to this one to get filename
-		System.out.println(fileName + "The system cannot find the file specified");
+		System.out.println(fileName + "(The system cannot find the file specified)");
 	}
 
 	@Override
@@ -25,8 +25,10 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 			}
 			i++;
 		}
-		corrected[4] = ')';
-		corrected[5] = '-';
+		corrected[j] = ')';
+		j++;
+		corrected[j] = '-';
+		j++;
 		while(j < 9)
 		{
 			if(Character.isDigit(phone[i]))
@@ -36,8 +38,9 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 			}
 			i++;
 		}
-		corrected[9] = '-';
-		while(j < 14)
+		corrected[j] = '-';
+		j++;
+		while(j < 14 &&  i < phone.length)
 		{
 			if(Character.isDigit(phone[i]))
 			{
@@ -51,14 +54,46 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 
 	@Override
 	public void handleEmailFormatNotFoundException(EmailAddressFormatException e) {
-		// TODO Auto-generated method stub
-		
+		String givenEmail = e.getMessage();
+		char[] email = givenEmail.toCharArray();
+		for(int i = 0; i < email.length; i++)
+		{
+			if(email[i] != '@' | email[i] != '.')
+			{
+				if(Character.isUpperCase(email[i]))
+				{
+					email[i] = Character.toLowerCase(email[i]);
+				}
+			}
+		}
+		System.out.println(email);
 	}
 
 	@Override
 	public void handleNameFormatNotFoundException(NameFormatException e) {
-		// TODO Auto-generated method stub
-		
+		String givenName = e.getMessage();
+		char[] name = givenName.toCharArray();
+		if(Character.isLowerCase(name[0]))
+		{
+			name[0] = Character.toUpperCase(name[0]);
+		}
+		int i = 1;
+		while(!(Character.isSpaceChar(name[i])))
+		{
+			name[i] = Character.toLowerCase(name[i]);
+			i++;
+		}
+		i++; //leave the space in the name
+		if(Character.isLowerCase(name[i]))
+		{
+			name[i] = Character.toUpperCase(name[i]);
+		}
+		i++;
+		for(int j = i; j < name.length; j++)
+		{
+			name[j] = Character.toLowerCase(name[j]);
+		}
+		System.out.println(name);
 	}
 	
 }
